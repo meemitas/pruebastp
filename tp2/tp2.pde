@@ -9,6 +9,8 @@ PFont miFuente2;
 int numPantalla;
 int contadorTiempo;
 int pantalla = 0;
+int tamañoTexto = 16;
+int opacidadTexto = 0;
 
 PImage img, img2, img3, img4, img5;
 
@@ -145,24 +147,38 @@ void draw() {
 
 // pantalla cinco:D
 
-    image(img3, 0, 0, 640, 480); //arte2.jpg
-    textFont( miFuente2 ) ; //fuente
-    stroke(0, 0, 255); //color de rectángulo
-    strokeWeight(13);
-    noFill();
-    rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
+  image(img3, 0, 0, 640, 480); //arte2.jpg
+  textFont( miFuente2 ) ; //fuente
+  stroke(0, 0, 255); //color de rectángulo
+  strokeWeight(13);
+  noFill();
+  rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
 
-    fill(219, 195, 159);
-    noStroke();
-    rect(55, 220, 525, 44); //cuadrito de fondo
+  fill(219, 195, 159);
+  noStroke();
+  rect(55, 220, 525, 44); //cuadrito de fondo
 
-    fill(0, 0, 255); //color de texto, azul
-    textAlign(CENTER, CENTER);
-    textSize(24);
-    float x = map(contadorTiempo, 101, -74, 320, 401+0);
-    text("by:teamLab", x, height/2);
-    
-    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+
+  if (contadorTiempo > 0 && contadorTiempo < 20) {
+    tamañoTexto = 18;
+    opacidadTexto = 50;
+  } else if (contadorTiempo >= 20 && contadorTiempo < 40) {
+    tamañoTexto = 22;
+    opacidadTexto = 120;
+  } else if (contadorTiempo >= 40 && contadorTiempo < 60) {
+    tamañoTexto = 26;
+    opacidadTexto = 180;
+  } else if (contadorTiempo >= 60) {
+    tamañoTexto = 30;
+    opacidadTexto = 255;
+  }
+
+  fill(0, 0, 255, opacidadTexto); //opacidad en color azul
+  textAlign(CENTER, CENTER);
+  textSize(tamañoTexto);
+  text("by:teamLab", width/2, height/2); 
+  
+   image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
     
   } if ( numPantalla == 5 ) {
 
