@@ -10,11 +10,7 @@ int numPantalla;
 int contadorTiempo;
 int pantalla = 0; //botoncito
 
-PImage img;
-PImage img2;
-PImage img3;
-PImage img4;
-PImage img5;
+PImage img, img2, img3, img4, img5;
 
 String texto = "La instalación Black Waves: Lost, Immersed and Reborn (2019),";
 String texto2 = "inspirada en la tradición artística japonesa, sus olas recuerdan";
@@ -41,6 +37,7 @@ void setup() {
 
 void draw() {
 
+  noCursor();
   stroke(0, 0, 255);
   strokeWeight(13);
   noFill();
@@ -61,20 +58,23 @@ void draw() {
 
     textAlign(CENTER, CENTER);
     textSize(24);
-    fill(7,1,245); //color de texto, azul
-   text("¡ iniciar !", width/7, height/7); //si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
-     fill(238,238,249); //color de texto, blanquito
-     
-    if (  //botoncito, usé el que se dio de ej en la clase y lo modifiqué
+    fill(7, 1, 245); //color de texto, azul
 
-      mouseX+80>100 && mouseX<100+150 &&
-      mouseY+70>110 && mouseY<110+50 ) {
-   
-   text("¡ iniciar !", width/7, height/7); //usé la primer font(superdream)
 
-    fill(40, 40, 237); //color de texto, azul
-    textAlign(CENTER, CENTER);
-    textSize(24);
+    text("¡ iniciar !", width/7, height/7); //si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
+    fill(238, 238, 249); //color de texto, blanquito
+
+
+    if (  //botoncito, usé el que se dio de ejemplo en la clase y lo modifiqué
+
+      mouseX > 19 && mouseX<19+203 &&
+      mouseY > 47 && mouseY<47+42 ) {
+
+      text("¡ iniciar !", width/7, height/7); //usé la primer font(superdream)
+
+      fill(40, 40, 237); //color de texto, azul
+      textAlign(CENTER, CENTER);
+      textSize(24);
 
       noFill();
     } else {
@@ -85,10 +85,8 @@ void draw() {
     rect(mouseX, mouseY, 80, 70);
 
     image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
-
-
-    
   } else if ( numPantalla == 1 ) {
+
 
 
     // pantalla dos:D
@@ -99,14 +97,15 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480);//rectángulo que genera las líneas azules del borde
-      image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   } else if ( numPantalla == 2 ) {
 
-  image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+
     // pantalla tres:D
 
 
-  
+
     image(img2, 0, 0, 640, 480); //arte2.jpg
     textFont( miFuente2 ) ; //fuente
     stroke(0, 0, 255); //color de rectángulo
@@ -121,8 +120,16 @@ void draw() {
     textAlign(CENTER, CENTER);
     textSize(24);
 
+    float shadeOffset = sin(frameCount * 0.1) * 3; //movimiento tipo sombra
+    fill(245, 25, 206, 100); //sombra rosita para generar efecto sombra
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    text("Black Waves: Lost, Immersed and Reborn(2019)", width/2 + shadeOffset, height/2 + shadeOffset);
+
+    fill(0, 0, 255); //color de texto, azul
     text("Black Waves: Lost, Immersed and Reborn(2019)", width/2, height/2);
-     image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+
+    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   } else if ( numPantalla == 3 ) {
 
 
@@ -134,7 +141,7 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
-      image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   }
   if ( numPantalla == 4 ) {
 
@@ -156,7 +163,7 @@ void draw() {
     textAlign(CENTER, CENTER);
     textSize(24);
     float x = map(contadorTiempo, 101, -74, 320, 401+0);
-  text("by:teamLab", x, height/2);
+    text("by:teamLab", x, height/2);
     image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   }
   if ( numPantalla == 5 ) {
@@ -170,7 +177,7 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
-      image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   } else if ( numPantalla == 6 ) {
 
 
@@ -201,7 +208,7 @@ void draw() {
     text(texto4, x, height/2 + 22);
     text(texto5, x, height/2 + 44);
     text(texto6, x, height/2 + 64);
-      image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   } else if ( numPantalla == 7 ) {
 
     // pantalla ocho
@@ -217,19 +224,19 @@ void draw() {
     noFill(); //color de texto
     textAlign(CENTER, CENTER);
     textSize(24);
-    fill(7,1,245); //color de texto, azul
-   text("¡ volver al inicio !", width/5, height/7); ///si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
-    fill(238,238,249); //color de texto, blanquito
-     
+    fill(7, 1, 245); //color de texto, azul
+    text("¡ volver al inicio !", width/5, height/7); ///si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
+    fill(238, 238, 249); //color de texto, blanquito
+
     if (  //botoncito, usé el que se dio de ej en la clase y lo modifiqué
-      mouseX+80>100 && mouseX<100+150 &&
-      mouseY+70>110 && mouseY<110+50 ) {
+      mouseX > 19 && mouseX<19+203 &&
+      mouseY > 47 && mouseY<47+42 ) {
 
-  text("¡ volver al inicio !", width/5, height/7); //usé la primer font(superdream)
+      text("¡ volver al inicio !", width/5, height/7); //usé la primer font(superdream)
 
-    fill(40, 40, 237); //color de texto, azul
-    textAlign(CENTER, CENTER);
-    textSize(24);
+      fill(40, 40, 237); //color de texto, azul
+      textAlign(CENTER, CENTER);
+      textSize(24);
 
       noFill();
     } else {
@@ -241,22 +248,22 @@ void draw() {
 
     image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   } else if ( numPantalla == 7 ) {
-    
   }
 
   contadorTiempo++;
-  if (contadorTiempo>90) {
-   contadorTiempo = 30;
+  if (contadorTiempo>80) {
+    contadorTiempo = 30;
 
     numPantalla++;
     if ( numPantalla>8 ) {
-      numPantalla = 0;
+      numPantalla = 7;
     }
   }
 }
 void mousePressed() {
-  numPantalla++;
-  if ( numPantalla>8 ) {
+  if (numPantalla == 0) {
+    numPantalla = 1;
+  } else if (numPantalla == 7) {
     numPantalla = 0;
   }
 }
