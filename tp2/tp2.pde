@@ -8,7 +8,7 @@ PFont miFuente2;
 
 int numPantalla;
 int contadorTiempo;
-int pantalla = 0; //botoncito
+int pantalla = 0;
 
 PImage img, img2, img3, img4, img5;
 
@@ -58,21 +58,16 @@ void draw() {
 
     textAlign(CENTER, CENTER);
     textSize(24);
-    fill(7, 1, 245); //color de texto, azul
-
-
-    text("¡ iniciar !", width/7, height/7); //si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
-    fill(238, 238, 249); //color de texto, blanquito
-
+    fill(238, 238, 249); //color de texto, azul
+    text("¡ iniciar !", width/5, height/7); //si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
+    fill(0, 0, 255); //color de texto, blanquito
 
     if (  //botoncito, usé el que se dio de ejemplo en la clase y lo modifiqué
 
       mouseX > 19 && mouseX<19+203 &&
-      mouseY > 47 && mouseY<47+42 ) {
-
-      text("¡ iniciar !", width/7, height/7); //usé la primer font(superdream)
-
-      fill(40, 40, 237); //color de texto, azul
+      mouseY > 19 && mouseY<47+21 ) {
+      fill(0, 0, 255); //color de texto, blanquito
+      text("¡ iniciar !", width/5, height/7); //usé la primer font(superdream)
       textAlign(CENTER, CENTER);
       textSize(24);
 
@@ -82,11 +77,10 @@ void draw() {
     }
     noStroke();
     rect(19, 47, 142, 42);
-    rect(mouseX, mouseY, 80, 70);
+    rect(mouseX, mouseY, 75, 70);
 
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   } else if ( numPantalla == 1 ) {
-
 
 
     // pantalla dos:D
@@ -100,7 +94,7 @@ void draw() {
     image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
   } else if ( numPantalla == 2 ) {
 
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
 
     // pantalla tres:D
 
@@ -129,7 +123,7 @@ void draw() {
     fill(0, 0, 255); //color de texto, azul
     text("Black Waves: Lost, Immersed and Reborn(2019)", width/2, height/2);
 
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   } else if ( numPantalla == 3 ) {
 
 
@@ -141,7 +135,7 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   }
   if ( numPantalla == 4 ) {
 
@@ -164,7 +158,7 @@ void draw() {
     textSize(24);
     float x = map(contadorTiempo, 101, -74, 320, 401+0);
     text("by:teamLab", x, height/2);
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   }
   if ( numPantalla == 5 ) {
 
@@ -177,7 +171,8 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   } else if ( numPantalla == 6 ) {
 
 
@@ -208,7 +203,8 @@ void draw() {
     text(texto4, x, height/2 + 22);
     text(texto5, x, height/2 + 44);
     text(texto6, x, height/2 + 64);
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   } else if ( numPantalla == 7 ) {
 
     // pantalla ocho
@@ -224,17 +220,17 @@ void draw() {
     noFill(); //color de texto
     textAlign(CENTER, CENTER);
     textSize(24);
-    fill(7, 1, 245); //color de texto, azul
+    fill(238, 238, 249); //color de texto, azul
     text("¡ volver al inicio !", width/5, height/7); ///si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
     fill(238, 238, 249); //color de texto, blanquito
 
-    if (  //botoncito, usé el que se dio de ej en la clase y lo modifiqué
+    if (  //botoncito interactivo
       mouseX > 19 && mouseX<19+203 &&
-      mouseY > 47 && mouseY<47+42 ) {
+      mouseY > 19 && mouseY<47+21 ) {
 
+      fill(0, 0, 255); //color de texto, blanquito
       text("¡ volver al inicio !", width/5, height/7); //usé la primer font(superdream)
 
-      fill(40, 40, 237); //color de texto, azul
       textAlign(CENTER, CENTER);
       textSize(24);
 
@@ -246,16 +242,18 @@ void draw() {
     rect(19, 47, 203, 42);
     rect(mouseX, mouseY, 80, 70);
 
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   } else if ( numPantalla == 7 ) {
   }
 
   contadorTiempo++;
-  if (contadorTiempo>80) {
+  if (contadorTiempo>120){
     contadorTiempo = 30;
 
     numPantalla++;
-    if ( numPantalla>8 ) {
+    if ( 1>=numPantalla) {
+      numPantalla = 0;
+    } else if ( numPantalla>8) {
       numPantalla = 7;
     }
   }
