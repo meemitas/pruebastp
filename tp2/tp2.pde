@@ -38,17 +38,18 @@ void setup() {
 void draw() {
 
   noCursor();
-  stroke(0, 0, 255);
+  stroke(0, 0, 255); //color de los bordes
   strokeWeight(13);
   noFill();
-  rect(-1, 0, 640, 480);//rectángulo que genera las líneas azules del borde
+  rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
   miFuente = createFont("Super Dream.ttf", 48);
   textFont( miFuente ) ;
   miFuente2 = createFont("MADEMellowPERSONALUSEMedium.otf", 48);
+  
 
   if ( numPantalla == 0 ) {
 
-    // pantalla uno:D
+// pantalla uno:D
 
     image(img, 0, 0, 640, 480); //arte4.jpg
     stroke(0, 0, 255); //color de rectángulo
@@ -59,7 +60,7 @@ void draw() {
     textAlign(CENTER, CENTER);
     textSize(24);
     fill(238, 238, 249); //color de texto, azul
-    text("¡ iniciar !", width/5, height/7); //si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
+    text("¡ iniciar !", width/5, height/7); //si lo pongo arriba y debajo de mousex mousey logro el efecto que quería generar ! 
     fill(0, 0, 255); //color de texto, blanquito
 
     if (  //botoncito, usé el que se dio de ejemplo en la clase y lo modifiqué
@@ -75,15 +76,17 @@ void draw() {
     } else {
       noFill();
     }
+    
     noStroke();
     rect(19, 47, 142, 42);
     rect(mouseX, mouseY, 75, 70);
 
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+    
   } else if ( numPantalla == 1 ) {
 
 
-    // pantalla dos:D
+// pantalla dos:D
 
     image(img2, 0, 0, 640, 480); //arte2.jpg
     textFont( miFuente2 ) ; //fuente
@@ -91,14 +94,13 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480);//rectángulo que genera las líneas azules del borde
-    image(img5, mouseX, mouseY, 80, 70); //brillito en mouse :D
+    
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+    
   } else if ( numPantalla == 2 ) {
 
-    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
 
-    // pantalla tres:D
-
-
+// pantalla tres:D
 
     image(img2, 0, 0, 640, 480); //arte2.jpg
     textFont( miFuente2 ) ; //fuente
@@ -124,10 +126,11 @@ void draw() {
     text("Black Waves: Lost, Immersed and Reborn(2019)", width/2, height/2);
 
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+    
   } else if ( numPantalla == 3 ) {
 
 
-    // pantalla cuatro:D
+// pantalla cuatro:D
 
     image(img3, 0, 0, 640, 480); //arte2.jpg
     textFont( miFuente2 ) ; //fuente
@@ -135,12 +138,12 @@ void draw() {
     strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
+    
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
-  }
-  if ( numPantalla == 4 ) {
 
+  } if ( numPantalla == 4 ) {
 
-    // pantalla cinco:D
+// pantalla cinco:D
 
     image(img3, 0, 0, 640, 480); //arte2.jpg
     textFont( miFuente2 ) ; //fuente
@@ -158,12 +161,13 @@ void draw() {
     textSize(24);
     float x = map(contadorTiempo, 101, -74, 320, 401+0);
     text("by:teamLab", x, height/2);
+    
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
-  }
-  if ( numPantalla == 5 ) {
+    
+  } if ( numPantalla == 5 ) {
 
 
-    // pantalla seis:D
+// pantalla seis:D
 
     image(img4, 0, 0, 640, 480); //arte3.jpg
     textFont( miFuente2 ) ; //fuente
@@ -173,10 +177,11 @@ void draw() {
     rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
 
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+    
   } else if ( numPantalla == 6 ) {
 
 
-    // pantalla siete:D
+// pantalla siete:D
 
     image(img4, 0, 0, 640, 480); //arte3.jpg
     textFont( miFuente2 ) ; //fuente
@@ -196,7 +201,7 @@ void draw() {
     textSize(20);
 
 
-    float x = map(contadorTiempo, -30, 73, 104, 54+0);
+    float x = map(contadorTiempo, -30, 120, 96, 39+0);
     text(texto, x, height/2 - 46);
     text(texto2, x, height/2 + -24);
     text(texto3, x, height/2 + -1);
@@ -207,7 +212,7 @@ void draw() {
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
   } else if ( numPantalla == 7 ) {
 
-    // pantalla ocho
+// pantalla ocho TT__TT ((((ayuda))) ((((me duelen las neuronas)))
 
     image(img4, 0, 0, 640, 480); //arte3.jpg
     textFont( miFuente ) ; //fuente
@@ -221,18 +226,17 @@ void draw() {
     textAlign(CENTER, CENTER);
     textSize(24);
     fill(238, 238, 249); //color de texto, azul
-    text("¡ volver al inicio !", width/5, height/7); ///si lo pongo arriba y debajo de mouse logro el efecto que quería lograr!
+    text("¡ volver al inicio !", width/5, height/7); ///si lo pongo arriba y debajo de mouse logro el efecto que quería generar !
     fill(238, 238, 249); //color de texto, blanquito
 
     if (  //botoncito interactivo
       mouseX > 19 && mouseX<19+203 &&
       mouseY > 19 && mouseY<47+21 ) {
-
-      fill(0, 0, 255); //color de texto, blanquito
-      text("¡ volver al inicio !", width/5, height/7); //usé la primer font(superdream)
-
-      textAlign(CENTER, CENTER);
-      textSize(24);
+      
+    fill(0, 0, 255); //color de texto, blanquito
+    text("¡ volver al inicio !", width/5, height/7); //usé la font superdream)
+    textAlign(CENTER, CENTER);
+    textSize(24);
 
       noFill();
     } else {
@@ -258,6 +262,7 @@ void draw() {
     }
   }
 }
+
 void mousePressed() {
   if (numPantalla == 0) {
     numPantalla = 1;
