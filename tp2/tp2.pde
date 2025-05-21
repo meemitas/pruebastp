@@ -9,7 +9,7 @@ PFont miFuente2;
 int numPantalla;
 int contadorTiempo;
 int pantalla = 0;
-int tamañoTexto = 16;
+int tamañoTexto = 0;
 int opacidadTexto = 0;
 
 PImage img, img2, img3, img4, img5;
@@ -40,7 +40,7 @@ void setup() {
 void draw() {
 
   noCursor();
-  stroke(0, 0, 255); //color de los bordes
+  stroke(0, 0, 255); //color de los bordes, azul
   strokeWeight(13);
   noFill();
   rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
@@ -54,8 +54,6 @@ void draw() {
 // pantalla uno:D
 
     image(img, 0, 0, 640, 480); //arte4.jpg
-    stroke(0, 0, 255); //color de rectángulo
-    strokeWeight(13);
     noFill();
     rect(-1, 0, 640, 480);//rectángulo que genera las líneas azules del borde
 
@@ -111,7 +109,7 @@ void draw() {
     noFill();
     rect(-1, 0, 640, 480);//rectángulo que genera las líneas azules del borde
 
-    fill(219, 195, 159);
+    fill(219, 195, 159); //color de cuadrito detrás del texto
     noStroke();
     rect(55, 220, 525, 44); //cuadrito de fondo
     fill(0, 0, 255); //color de texto, azul
@@ -119,7 +117,7 @@ void draw() {
     textSize(24);
 
     float shadeOffset = sin(frameCount * 0.1) * 3; //movimiento tipo sombra
-    fill(245, 25, 206, 100); //sombra rosita para generar efecto sombra
+    fill(254, 58, 210); //color rosita para generar efecto sombra
     textAlign(CENTER, CENTER);
     textSize(24);
     text("Black Waves: Lost, Immersed and Reborn(2019)", width/2 + shadeOffset, height/2 + shadeOffset);
@@ -147,40 +145,27 @@ void draw() {
 
 // pantalla cinco:D
 
-  image(img3, 0, 0, 640, 480); //arte2.jpg
-  textFont( miFuente2 ) ; //fuente
-  stroke(0, 0, 255); //color de rectángulo
-  strokeWeight(13);
-  noFill();
-  rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
+    image(img3, 0, 0, 640, 480); //arte2.jpg
+    textFont( miFuente2 ) ; //fuente
+    stroke(0, 0, 255); //color de rectángulo
+    strokeWeight(13);
+    noFill();
+    rect(-1, 0, 640, 480); //rectángulo que genera las líneas azules del borde
 
-  fill(219, 195, 159);
-  noStroke();
-  rect(55, 220, 525, 44); //cuadrito de fondo
+    fill(219, 195, 159); //color de cuadrito detrás del texto
+    noStroke();
+    rect(55, 220, 525, 44); //cuadrito de fondo
 
-
-  if (contadorTiempo > 0 && contadorTiempo < 20) {
-    tamañoTexto = 18;
-    opacidadTexto = 50;
-  } else if (contadorTiempo >= 20 && contadorTiempo < 40) {
-    tamañoTexto = 22;
-    opacidadTexto = 120;
-  } else if (contadorTiempo >= 40 && contadorTiempo < 60) {
-    tamañoTexto = 26;
-    opacidadTexto = 180;
-  } else if (contadorTiempo >= 60) {
-    tamañoTexto = 30;
-    opacidadTexto = 255;
-  }
-
-  fill(0, 0, 255, opacidadTexto); //opacidad en color azul
-  textAlign(CENTER, CENTER);
-  textSize(tamañoTexto);
-  text("by:teamLab", width/2, height/2); 
-  
-   image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+    fill(0, 0, 255); //color de fuente, azul
+    textAlign(CENTER, CENTER);
+    float m = map(contadorTiempo, 0, 2, 0, 2);
+    textSize(m/3);
+    float x = map(contadorTiempo, 108, -63, 317, 345+0);
+    text("by:teamLab", x, height/2);
+   
+    image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
     
-  } if ( numPantalla == 5 ) {
+   } if ( numPantalla == 5 ) {
 
 
 // pantalla seis:D
@@ -226,6 +211,7 @@ void draw() {
     text(texto6, x, height/2 + 64);
 
     image(img5, mouseX, mouseY, 68, 70); //brillito en mouse :D
+    
   } else if ( numPantalla == 7 ) {
 
 // pantalla ocho TT__TT ((((ayuda))) ((((me duelen las neuronas)))
@@ -246,8 +232,8 @@ void draw() {
     fill(238, 238, 249); //color de texto, blanquito
 
     if (  //botoncito interactivo
-      mouseX > 19 && mouseX<19+203 &&
-      mouseY > 19 && mouseY<47+21 ) {
+     mouseX > 19 && mouseX<19+203 &&
+     mouseY > 19 && mouseY<47+21 ) {
       
     fill(0, 0, 255); //color de texto, blanquito
     text("¡ volver al inicio !", width/5, height/7); //usé la font superdream)
